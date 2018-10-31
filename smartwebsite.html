@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>A SMARTER PORTFOLIO</title>
+    <meta name="description" content="ASK ME ANYTHING ABOUT ERIC ZHONG.">
+
+    <!--
+
+     A SMARTER PORTFOLIO.
+
+     ASK THE WEBSTIE ANY QUESTION ABOUT ME, AND IT WILL REPLY.
+    -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#btn").click(function(){
+        axios.get('http://0.0.0.0:5000/predict', {
+          headers: {
+             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+          },
+          params: {
+            query: $( "input:first" ).val(),
+          }
+        })
+        .then(function(response){
+          //log full response
+          console.log("hello")
+          $("#resultDisplay").text(response);
+          console.log(response);
+
+          // // Formatted address
+          // var formattedAddress = response.data.results[0].formatted_address;
+
+
+          // document.getElementById("formatted-Address").innerHTML = formattedAddressOutput
+          // document.getElementById("formatted-LatLong").innerHTML = formattedLatLongOutput
+          // document.getElementById("data-Location").innerHTML = dataLocation
+        })
+        .catch(function(error){
+          console.log(error);
+        });
+      });
+  });
+  </script>
+
+  </head>
+  <style>
+    @font-face {
+      font-family: "VCR";
+      src: url("https://cdn.shopify.com/s/files/1/1377/5499/t/2/assets/VCR_OSD_MONO.eot?8923539384586471615");
+      src: url("https://cdn.shopify.com/s/files/1/1377/5499/t/2/assets/VCR_OSD_MONO.woff?8923539384586471615") format("woff"),
+           url("https://cdn.shopify.com/s/files/1/1377/5499/t/2/assets/VCR_OSD_MONO.ttf?8923539384586471615") format("truetype"),
+           url("https://cdn.shopify.com/s/files/1/1377/5499/t/2/assets/VCR_OSD_MONO.svg?8923539384586471615#VCR") format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      font-family: "VCR";
+      font-weight: normal;
+      font-style: normal;                 /* centerized */
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 500px;
+      height: 100px;
+      text-align: right;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: black;
+      text-align: center;
+      font-size: 8pt;
+    }
+
+    .backing {
+      font-family: "VCR";
+      font-weight: normal;
+      font-style: normal;                 /* centerized */
+      position: fixed;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 700px;
+      height: 200px;
+      text-align: right;
+      color: #ffffff;
+      z-index: -5;
+    }
+
+  </style>
+    <body bgcolor="#ffffff">
+        <center>
+          <div id="main">ASK ME ANYTHING ABOUT ERIC ZHONG:</div>
+          <input type="text" id="inputquery" value="">
+
+          <button type="button" id="btn">SUBMIT</button>
+          <p></p>
+          <p id="resultDisplay"></p>
+        </center>
+
+        <div class="footer">
+          <p>ERIC ZHONG 2018 | INFO@ERICDOMAINS.COM</p>
+        </div>
+    </body>
+</html>
