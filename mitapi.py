@@ -33,7 +33,6 @@ class PredictStep(Resource):
         # create JSON object
         output = {'prediction': pred_text, 'confidence': confidence}
         print(output)
-        output.headers['Access-Control-Allow-Headers'] = '*'
 
         return output
 
