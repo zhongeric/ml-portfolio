@@ -7,7 +7,6 @@ import random
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 from sklearn import metrics
-import coremltools
 import time
 import pickle
 from textblob import TextBlob
