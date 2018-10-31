@@ -8,7 +8,7 @@ api = Api(app)
 # create new model object
 model = cl
 # load trained classifier
-clf_path = '/Users/EricZhong/mit_model.pkl'
+clf_path = '/home/ezhong1900/mit_model.pkl'
 with open(clf_path, 'rb') as f:
     model.clf = pickle.load(f)
 
