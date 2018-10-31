@@ -1,5 +1,4 @@
 from flask import Flask
-from twilio.rest import Client
 from flask_restful import reqparse, abort, Api, Resource
 import pickle
 import numpy as np
