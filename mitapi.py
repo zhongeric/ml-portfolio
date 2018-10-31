@@ -33,6 +33,7 @@ class PredictStep(Resource):
         # create JSON object
         output = {'prediction': pred_text, 'confidence': confidence}
         print(output)
+        output.headers['Access-Control-Allow-Headers'] = '*'
 
         return output
 
@@ -43,4 +44,4 @@ api.add_resource(PredictStep, '/predict')
 # api.add_resource(PredictRatings, '/ratings')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', ssl_context='adhoc')
