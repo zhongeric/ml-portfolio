@@ -34,7 +34,7 @@ class PredictStep(Resource):
         output = {'prediction': pred_text, 'confidence': confidence}
         print(output)
 
-        return output, {'Access-Control-Allow-Headers'': '*'}
+        return output, {'Access-Control-Allow-Headers': '*'}
 
 api.add_resource(PredictStep, '/predict')
 
